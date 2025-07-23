@@ -24,9 +24,7 @@ templates/
 │   │   ├── .gitignore              # Shared Git ignore rules
 │   │   ├── .prettierignore         # Shared Prettier ignore rules
 │   │   └── LICENSE                 # Shared MIT License
-│   ├── scripts/
-│   │   ├── setup.sh                # Project setup script
-│   │   └── post-install.js         # Post-install setup script
+
 │   └── docs/
 │       ├── getting-started.md      # Getting started guide
 │       └── deployment.md           # Deployment guide
@@ -95,13 +93,7 @@ honestjs create my-project --template mvc
     cd templates
     ```
 
-2. Use the setup script:
-
-    ```bash
-    ./shared/scripts/setup.sh my-project blank
-    ```
-
-3. Navigate to your project and start developing:
+2. Navigate to your project and start developing:
     ```bash
     cd my-project
     bun run dev

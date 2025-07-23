@@ -21,9 +21,7 @@
 		".prettierignore",
 		"LICENSE"
 	],
-	"scripts": {
-		"post-install": "node shared/scripts/post-install.js"
-	},
+	"scripts": {},
 	"variables": {
 		"projectName": {
 			"type": "string",
