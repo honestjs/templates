@@ -1,0 +1,100 @@
+{
+	"version": "1.0.0",
+	"templates": {
+		"blank": {
+			"name": "Blank",
+			"description": "Empty project with basic setup",
+			"category": "basic",
+			"tags": ["minimal", "starter"],
+			"version": "1.0.0",
+			"author": "HonestJS Team",
+			"repository": "honestjs/templates",
+			"path": "templates/blank",
+			"defaults": {
+				"packageManager": "bun",
+				"typescript": true,
+				"eslint": true,
+				"prettier": true,
+				"docker": false,
+				"testing": false,
+				"database": false,
+				"frontend": false,
+				"git": true
+			},
+			"features": {
+				"typescript": true,
+				"eslint": true,
+				"prettier": true,
+				"docker": true,
+				"testing": true,
+				"database": true,
+				"frontend": false
+			}
+		},
+		"barebone": {
+			"name": "Barebone",
+			"description": "Minimal project structure with basic modules",
+			"category": "structured",
+			"tags": ["modules", "controllers", "services"],
+			"version": "1.0.0",
+			"author": "HonestJS Team",
+			"repository": "honestjs/templates",
+			"path": "templates/barebone",
+			"defaults": {
+				"packageManager": "bun",
+				"typescript": true,
+				"eslint": true,
+				"prettier": true,
+				"docker": true,
+				"testing": true,
+				"database": true,
+				"frontend": false,
+				"git": true
+			},
+			"features": {
+				"typescript": true,
+				"eslint": true,
+				"prettier": true,
+				"docker": true,
+				"testing": true,
+				"database": true,
+				"frontend": false
+			}
+		},
+		"mvc": {
+			"name": "MVC",
+			"description": "Full MVC structure with React components",
+			"category": "fullstack",
+			"tags": ["react", "mvc", "frontend"],
+			"version": "1.0.0",
+			"author": "HonestJS Team",
+			"repository": "honestjs/templates",
+			"path": "templates/mvc",
+			"defaults": {
+				"packageManager": "bun",
+				"typescript": true,
+				"eslint": true,
+				"prettier": true,
+				"docker": true,
+				"testing": true,
+				"database": true,
+				"frontend": true,
+				"git": true
+			},
+			"features": {
+				"typescript": true,
+				"eslint": true,
+				"prettier": true,
+				"docker": true,
+				"testing": true,
+				"database": true,
+				"frontend": true
+			}
+		}
+	},
+	"categories": {
+		"basic": "Simple starter templates",
+		"structured": "Templates with organized structure",
+		"fullstack": "Full-stack application templates"
+	}
+}

@@ -1,0 +1,80 @@
+{
+	"name": "MVC Template",
+	"description": "Full MVC structure with React components",
+	"version": "1.0.0",
+	"author": "HonestJS Team",
+	"license": "MIT",
+	"keywords": ["honestjs", "template", "mvc", "react", "fullstack"],
+	"engines": {
+		"node": ">=18.0.0",
+		"bun": ">=1.0.0"
+	},
+	"files": ["package.json", "src/**/*", "static/**/*", "README.md"],
+	"optional": [
+		"eslint.config.js",
+		"prettier.config.js",
+		"tsconfig.json",
+		"Dockerfile",
+		"docker-compose.yml",
+		".dockerignore",
+		".gitignore",
+		".prettierignore",
+		"LICENSE"
+	],
+	"scripts": {
+		"post-install": "node shared/scripts/post-install.js"
+	},
+	"variables": {
+		"projectName": {
+			"type": "string",
+			"required": true,
+			"description": "Name of the project"
+		},
+		"packageManager": {
+			"type": "choice",
+			"choices": ["bun", "npm", "yarn", "pnpm"],
+			"default": "bun",
+			"description": "Package manager to use"
+		},
+		"typescript": {
+			"type": "boolean",
+			"default": true,
+			"description": "Use TypeScript"
+		},
+		"eslint": {
+			"type": "boolean",
+			"default": true,
+			"description": "Add ESLint for code linting"
+		},
+		"prettier": {
+			"type": "boolean",
+			"default": true,
+			"description": "Add Prettier for code formatting"
+		},
+		"docker": {
+			"type": "boolean",
+			"default": true,
+			"description": "Add Docker configuration"
+		},
+		"testing": {
+			"type": "boolean",
+			"default": true,
+			"description": "Include testing setup"
+		},
+		"database": {
+			"type": "boolean",
+			"default": true,
+			"description": "Include database support"
+		},
+		"frontend": {
+			"type": "boolean",
+			"default": true,
+			"description": "Include React frontend components"
+		},
+		"git": {
+			"type": "boolean",
+			"default": true,
+			"description": "Initialize git repository"
+		}
+	}
+}

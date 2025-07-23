@@ -1,377 +1,240 @@
 # HonestJS Templates
 
-A collection of templates for the HonestJS framework to help you get started quickly with different project types and architectures.
+A collection of pre-configured project templates for [HonestJS](https://honestjs.dev) applications.
 
-## 🚀 Quick Start
+## 🎯 Overview
 
-Choose a template and start building:
+This repository contains a structured collection of templates that help you get started quickly with HonestJS applications. Each template is designed for different use cases and project requirements.
+
+## 📁 Repository Structure
+
+```
+templates/
+├── README.md
+├── LICENSE
+├── templates.json                    # Template registry and metadata
+├── shared/                          # Shared components and configurations
+│   ├── configs/
+│   │   ├── eslint.config.js         # Shared ESLint configuration
+│   │   ├── prettier.config.js       # Shared Prettier configuration
+│   │   ├── tsconfig.json           # Shared TypeScript configuration
+│   │   ├── docker-compose.yml      # Shared Docker Compose configuration
+│   │   ├── Dockerfile              # Shared Docker configuration
+│   │   ├── .dockerignore           # Shared Docker ignore rules
+│   │   ├── .gitignore              # Shared Git ignore rules
+│   │   ├── .prettierignore         # Shared Prettier ignore rules
+│   │   └── LICENSE                 # Shared MIT License
+│   ├── scripts/
+│   │   ├── setup.sh                # Project setup script
+│   │   └── post-install.js         # Post-install setup script
+│   └── docs/
+│       ├── getting-started.md      # Getting started guide
+│       └── deployment.md           # Deployment guide
+└── templates/
+    ├── blank/
+    │   ├── template.json           # Template-specific configuration
+    │   ├── files/                  # Template files (unique to template)
+    │   ├── prompts.js              # Template-specific prompts
+    │   └── transforms.js           # File transformations
+    ├── barebone/
+    │   ├── template.json
+    │   ├── files/
+    │   ├── prompts.js
+    │   └── transforms.js
+    └── mvc/
+        ├── template.json
+        ├── files/
+        ├── prompts.js
+        └── transforms.js
+```
+
+## 🚀 Available Templates
+
+### 1. **Blank Template** (`blank`)
+
+-   **Category**: Basic
+-   **Description**: Empty project with basic setup
+-   **Best for**: Simple applications, learning HonestJS
+-   **Features**: TypeScript, ESLint, Prettier, Docker (optional)
+
+### 2. **Barebone Template** (`barebone`)
+
+-   **Category**: Structured
+-   **Description**: Minimal project structure with basic modules
+-   **Best for**: Small to medium applications
+-   **Features**: Modules, Controllers, Services, Testing, Database support
+
+### 3. **MVC Template** (`mvc`)
+
+-   **Category**: Fullstack
+-   **Description**: Full MVC structure with React components
+-   **Best for**: Full-stack applications with frontend
+-   **Features**: React components, MVC pattern, Static assets, Views
+
+## 🛠️ Quick Start
+
+### Using HonestJS CLI (Recommended)
 
 ```bash
-# Clone the repository
-git clone <your-repo-url>
-cd templates
+# Create a new project with the blank template
+honestjs create my-project --template blank
 
-# Copy your desired template
-cp -r <template-name> my-new-project
-cd my-new-project
+# Create a new project with the barebone template
+honestjs create my-project --template barebone
 
-# Install dependencies
-bun install
-
-# Start development
-bun run dev
+# Create a new project with the MVC template
+honestjs create my-project --template mvc
 ```
 
-## 📋 Available Templates
-
-### Current Templates
-
-#### 🎯 **blank** - Minimal Starter
-
-A clean, minimal template with basic HonestJS setup. Perfect for learning the framework or starting from scratch.
-
-**Features:**
-
--   Basic HonestJS application structure
--   TypeScript configuration
--   ESLint and Prettier setup
--   Docker support
--   Hot reload development server
-
-**Best for:** Learning HonestJS, simple APIs, proof of concepts
-
----
-
-#### 🏠 **barebone** - Barebone Template
-
-A barebone template with a minimal setup. Perfect for learning the framework or starting from scratch.
-
-**Features:**
-
--   Modular architecture with users module
--   DTOs and models structure
--   Service layer pattern
--   Controller examples
--   Test setup with examples
-
-**Best for:** Fast prototyping, learning modular patterns, small to medium applications
-
----
-
-#### 🎨 **mvc** - Model-View-Controller
-
-A full-stack MVC template with React components, static assets, and server-side rendering capabilities.
-
-**Features:**
-
--   React components for UI
--   Static CSS and JavaScript assets
--   Layout system with Header/Footer
--   View components for server-side rendering
--   Decorators for parameter handling
--   Zod validation integration
-
-**Best for:** Full-stack applications, web applications with UI, server-side rendered content
-
-## 🚧 Planned Templates
-
-### API-Focused Templates
-
-#### **api-rest** - REST API Template
-
-Complete REST API setup with OpenAPI documentation, rate limiting, CORS, and comprehensive logging.
-
-**Planned Features:**
-
--   OpenAPI/Swagger documentation
--   Rate limiting middleware
--   CORS configuration
--   Request/response logging
--   API versioning
--   Health check endpoints
-
-#### **api-graphql** - GraphQL Template
-
-GraphQL server with schema setup, resolvers, and optimized data loading.
-
-**Planned Features:**
-
--   GraphQL schema setup
--   Resolvers structure
--   DataLoader for N+1 prevention
--   GraphQL playground
--   Schema validation
-
-#### **api-microservice** - Microservice Template
-
-Microservice architecture with service discovery and inter-service communication.
-
-**Planned Features:**
-
--   Service discovery
--   Message queue integration (Redis/RabbitMQ)
--   Inter-service communication
--   Circuit breaker pattern
--   Service health monitoring
-
-### Database Templates
-
-#### **database-sql** - SQL Database Template
-
-SQL database integration with Prisma ORM and migration management.
-
-**Planned Features:**
-
--   Prisma ORM setup
--   Database migrations
--   Connection pooling
--   Query optimization
--   Database seeding
-
-#### **database-mongo** - MongoDB Template
-
-MongoDB integration with Mongoose ODM and aggregation support.
-
-**Planned Features:**
-
--   Mongoose ODM
--   Aggregation pipelines
--   Index optimization
--   Change streams
--   MongoDB Atlas integration
-
-#### **database-redis** - Redis Template
-
-Redis integration for caching, sessions, and real-time features.
-
-**Planned Features:**
-
--   Caching strategies
--   Session management
--   Pub/Sub messaging
--   Rate limiting
--   Redis cluster support
-
-### Authentication & Security
-
-#### **auth-jwt** - JWT Authentication Template
-
-Complete JWT authentication system with token management and role-based access.
-
-**Planned Features:**
-
--   JWT token management
--   Refresh token rotation
--   Role-based access control
--   Password hashing
--   Token blacklisting
-
-#### **auth-oauth** - OAuth Template
-
-OAuth integration with social login providers and user profile management.
-
-**Planned Features:**
-
--   Social login providers (Google, GitHub, etc.)
--   OAuth flow handling
--   User profile management
--   Account linking
--   OAuth state validation
-
-### Real-time & WebSocket
-
-#### **realtime-websocket** - WebSocket Template
-
-Real-time communication with WebSocket server and room management.
-
-**Planned Features:**
-
--   WebSocket server setup
--   Room management
--   Real-time messaging
--   Connection state management
--   Broadcasting utilities
-
-#### **realtime-sse** - Server-Sent Events Template
-
-Server-Sent Events for real-time data streaming.
-
-**Planned Features:**
-
--   SSE endpoint setup
--   Event streaming
--   Client reconnection handling
--   Event filtering
--   Connection pooling
-
-### Testing & Development
-
-#### **testing-e2e** - End-to-End Testing Template
-
-Complete E2E testing setup with Playwright and CI/CD integration.
-
-**Planned Features:**
-
--   Playwright setup
--   Test database seeding
--   API testing utilities
--   CI/CD pipeline configuration
--   Visual regression testing
-
-#### **testing-unit** - Unit Testing Template
-
-Comprehensive unit testing with Jest/Vitest and coverage reporting.
-
-**Planned Features:**
-
--   Jest/Vitest configuration
--   Mock factories
--   Test utilities
--   Coverage reporting
--   Test data factories
-
-### Production & Deployment
-
-#### **production-monitoring** - Production Monitoring Template
-
-Production-ready monitoring with health checks and metrics collection.
-
-**Planned Features:**
-
--   Health checks
--   Metrics collection (Prometheus)
--   Logging (Winston/Pino)
--   Error tracking (Sentry)
--   Performance monitoring
-
-#### **production-kubernetes** - Kubernetes Template
-
-Kubernetes deployment with service mesh and autoscaling.
-
-**Planned Features:**
-
--   K8s manifests
--   Helm charts
--   Service mesh configuration
--   Horizontal pod autoscaling
--   Ingress configuration
-
-### Specialized Use Cases
-
-#### **file-upload** - File Upload Template
-
-File upload handling with validation and cloud storage integration.
-
-**Planned Features:**
-
--   Multipart form handling
--   File validation
--   Cloud storage integration (AWS S3, etc.)
--   Image processing
--   File streaming
-
-#### **email-service** - Email Service Template
-
-Email service with templates and queue processing.
-
-**Planned Features:**
-
--   Email templates
--   Queue processing
--   Multiple email providers
--   Email tracking
--   Template engine
-
-#### **payment-stripe** - Payment Processing Template
-
-Stripe integration with webhook handling and subscription management.
-
-**Planned Features:**
-
--   Stripe integration
--   Webhook handling
--   Payment flow management
--   Subscription handling
--   Payment analytics
-
-#### **cron-jobs** - Scheduled Tasks Template
-
-Scheduled task processing with job monitoring and queue management.
-
-**Planned Features:**
-
--   Cron job scheduling
--   Task queue management
--   Background job processing
--   Job monitoring
--   Retry mechanisms
-
-## 🛠️ Template Structure
-
-Each template follows a consistent structure:
-
-```
-template-name/
-├── src/
-│   ├── main.ts              # Application entry point
-│   ├── app.module.ts        # Root module
-│   ├── modules/             # Feature modules
-│   ├── components/          # UI components (MVC only)
-│   ├── layouts/             # Layout components (MVC only)
-│   └── static/              # Static assets (MVC only)
-├── package.json             # Dependencies and scripts
-├── tsconfig.json           # TypeScript configuration
-├── eslint.config.js        # ESLint configuration
-├── docker-compose.yml      # Docker setup
-├── Dockerfile              # Docker configuration
-└── README.md               # Template-specific documentation
+### Manual Setup
+
+1. Clone this repository:
+
+    ```bash
+    git clone https://github.com/honestjs/templates.git
+    cd templates
+    ```
+
+2. Use the setup script:
+
+    ```bash
+    ./shared/scripts/setup.sh my-project blank
+    ```
+
+3. Navigate to your project and start developing:
+    ```bash
+    cd my-project
+    bun run dev
+    ```
+
+## 📋 Template Selection Guide
+
+| Template     | Use Case                | Complexity | Features                       |
+| ------------ | ----------------------- | ---------- | ------------------------------ |
+| **Blank**    | Learning, simple apps   | Low        | Basic setup, minimal structure |
+| **Barebone** | APIs, backend services  | Medium     | Modules, testing, database     |
+| **MVC**      | Full-stack applications | High       | React, MVC, static assets      |
+
+## 🔧 Configuration
+
+Each template supports various configuration options:
+
+-   **Package Manager**: Choose between Bun, npm, yarn, or pnpm
+-   **TypeScript**: Enable/disable TypeScript support
+-   **ESLint**: Add code linting configuration
+-   **Prettier**: Add code formatting configuration
+-   **Docker**: Include Docker configuration
+-   **Testing**: Include testing setup
+-   **Database**: Include database support
+-   **Frontend**: Include React components (MVC template only)
+
+## 🎨 Customization
+
+### Template Variables
+
+Templates use variables that can be customized during project creation:
+
+```javascript
+// Example variables for the blank template
+{
+  projectName: "my-awesome-project",
+  packageManager: "bun",
+  typescript: true,
+  eslint: true,
+  prettier: true,
+  docker: false,
+  git: true
+}
 ```
 
-## 📦 Common Dependencies
+### File Transformations
 
-All templates include these core dependencies:
+Templates support conditional file inclusion and content transformation:
 
--   **honestjs** - The HonestJS framework
--   **hono** - Web framework
--   **reflect-metadata** - Metadata reflection
--   **class-validator** - Validation decorators
--   **class-transformer** - Object transformation
--   **http-essentials** - HTTP utilities
+```javascript
+// Example transform for package.json
+'package.json': (content, variables) => {
+  const pkg = JSON.parse(content);
+  pkg.name = variables.projectName;
 
-## 🚀 Development Scripts
+  // Update scripts based on package manager
+  if (variables.packageManager !== 'bun') {
+    Object.keys(pkg.scripts).forEach((key) => {
+      if (pkg.scripts[key].startsWith('bun ')) {
+        pkg.scripts[key] = pkg.scripts[key].replace('bun ', `${variables.packageManager} `);
+      }
+    });
+  }
 
-Each template includes these standard scripts:
+  return JSON.stringify(pkg, null, 2);
+}
+```
 
--   `bun run dev` - Start development server with hot reload
--   `bun run build:bun` - Build for Bun runtime
--   `bun run build:node` - Build for Node.js runtime
--   `bun run test` - Run tests
--   `bun run lint` - Run ESLint
--   `bun run format` - Format code with Prettier
--   `bun run docker:up` - Start Docker containers
+### Shared Configurations
+
+All templates use shared configuration files from `shared/configs/`:
+
+-   **ESLint**: Consistent linting rules across all projects
+-   **Prettier**: Unified code formatting standards
+-   **TypeScript**: Standard TypeScript configuration
+-   **Docker**: Reusable Docker configurations
+-   **Git**: Common ignore patterns
+-   **License**: MIT License for all projects
+
+## 📚 Documentation
+
+-   **[Getting Started Guide](shared/docs/getting-started.md)** - Learn how to use the templates
+-   **[Deployment Guide](shared/docs/deployment.md)** - Deploy your HonestJS applications
 
 ## 🤝 Contributing
 
-Want to add a new template or improve existing ones?
+We welcome contributions! Here's how you can help:
 
-1. Fork the repository
-2. Create a new branch for your template
-3. Follow the existing template structure
-4. Add comprehensive documentation
-5. Submit a pull request
+1. **Fork** the repository
+2. **Create** a feature branch
+3. **Make** your changes
+4. **Test** your changes
+5. **Submit** a pull request
+
+### Adding a New Template
+
+1. Create a new directory in `templates/`
+2. Add template files in `templates/[name]/files/`
+3. Create `template.json` with configuration
+4. Add `prompts.js` for user interaction
+5. Add `transforms.js` for file transformations
+6. Update `templates.json` registry
+
+### Template Structure
+
+```
+templates/[template-name]/
+├── template.json      # Template configuration
+├── files/            # Template files (unique content only)
+├── prompts.js        # User prompts
+└── transforms.js     # File transformations
+```
+
+### Shared Configurations
+
+When adding new templates, use the shared configurations from `shared/configs/`:
+
+-   Copy config files from `shared/configs/` in your transforms
+-   Don't duplicate configuration files in template directories
+-   Keep template directories focused on unique content only
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
-Need help with a template or have questions about HonestJS?
+-   **Documentation**: [HonestJS Docs](https://honestjs.dev)
+-   **Issues**: [GitHub Issues](https://github.com/honestjs/templates/issues)
+-   **Discussions**: [GitHub Discussions](https://github.com/honestjs/templates/discussions)
 
--   Check the [HonestJS documentation](https://honestjs.dev)
--   Open an issue in this repository
--   Join our community discussions
+## 🙏 Acknowledgments
 
----
-
-**Happy coding with HonestJS! 🎉**
+-   Built with [HonestJS](https://honestjs.dev)
+-   Inspired by modern template systems
+-   Community-driven development
