@@ -23,11 +23,6 @@
 	],
 	"scripts": {},
 	"variables": {
-		"projectName": {
-			"type": "string",
-			"required": true,
-			"description": "Name of the project"
-		},
 		"packageManager": {
 			"type": "choice",
 			"choices": ["bun", "npm", "yarn", "pnpm"],

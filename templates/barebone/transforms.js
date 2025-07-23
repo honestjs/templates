@@ -3,7 +3,7 @@ export const transforms = {
 	// Transform package.json
 	'package.json': (content, variables) => {
 		const pkg = JSON.parse(content)
-		pkg.name = variables.projectName
+		pkg.name = variables.name
 
 		// Update scripts based on package manager
 		if (variables.packageManager !== 'bun') {
@@ -25,7 +25,7 @@ export const transforms = {
 	// Transform README.md
 	'README.md': (content, variables) => {
 		return content
-			.replace(/{{projectName}}/g, variables.projectName)
+			.replace(/{{projectName}}/g, variables.name)
 			.replace(/{{packageManager}}/g, variables.packageManager)
 	},
 
@@ -62,7 +62,7 @@ export const transforms = {
 		return variables.prettier ? 'shared/configs/.prettierignore' : null
 	},
 
-	LICENSE: (content, variables) => {
+	LICENSE: () => {
 		return 'shared/configs/LICENSE'
 	},
 

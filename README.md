@@ -147,7 +147,7 @@ Templates support conditional file inclusion and content transformation:
 // Example transform for package.json
 'package.json': (content, variables) => {
   const pkg = JSON.parse(content);
-  pkg.name = variables.projectName;
+  pkg.name = variables.name;
 
   // Update scripts based on package manager
   if (variables.packageManager !== 'bun') {
