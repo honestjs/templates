@@ -9,27 +9,7 @@
 			"version": "1.0.0",
 			"author": "HonestJS Team",
 			"repository": "honestjs/templates",
-			"path": "templates/blank",
-			"defaults": {
-				"packageManager": "bun",
-				"typescript": true,
-				"eslint": true,
-				"prettier": true,
-				"docker": false,
-				"testing": false,
-				"database": false,
-				"frontend": false,
-				"git": true
-			},
-			"features": {
-				"typescript": true,
-				"eslint": true,
-				"prettier": true,
-				"docker": true,
-				"testing": true,
-				"database": true,
-				"frontend": false
-			}
+			"path": "templates/blank"
 		},
 		"barebone": {
 			"name": "Barebone",
@@ -39,27 +19,7 @@
 			"version": "1.0.0",
 			"author": "HonestJS Team",
 			"repository": "honestjs/templates",
-			"path": "templates/barebone",
-			"defaults": {
-				"packageManager": "bun",
-				"typescript": true,
-				"eslint": true,
-				"prettier": true,
-				"docker": true,
-				"testing": true,
-				"database": true,
-				"frontend": false,
-				"git": true
-			},
-			"features": {
-				"typescript": true,
-				"eslint": true,
-				"prettier": true,
-				"docker": true,
-				"testing": true,
-				"database": true,
-				"frontend": false
-			}
+			"path": "templates/barebone"
 		},
 		"mvc": {
 			"name": "MVC",
@@ -69,27 +29,7 @@
 			"version": "1.0.0",
 			"author": "HonestJS Team",
 			"repository": "honestjs/templates",
-			"path": "templates/mvc",
-			"defaults": {
-				"packageManager": "bun",
-				"typescript": true,
-				"eslint": true,
-				"prettier": true,
-				"docker": true,
-				"testing": true,
-				"database": true,
-				"frontend": true,
-				"git": true
-			},
-			"features": {
-				"typescript": true,
-				"eslint": true,
-				"prettier": true,
-				"docker": true,
-				"testing": true,
-				"database": true,
-				"frontend": true
-			}
+			"path": "templates/mvc"
 		}
 	},
 	"categories": {

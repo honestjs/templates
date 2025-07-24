@@ -22,42 +22,5 @@
 		"LICENSE"
 	],
 	"scripts": {},
-	"variables": {
-		"packageManager": {
-			"type": "choice",
-			"choices": ["bun", "npm", "yarn", "pnpm"],
-			"default": "bun",
-			"description": "Package manager to use"
-		},
-		"typescript": {
-			"type": "boolean",
-			"default": true,
-			"description": "Use TypeScript"
-		},
-		"eslint": {
-			"type": "boolean",
-			"default": true,
-			"description": "Add ESLint for code linting"
-		},
-		"prettier": {
-			"type": "boolean",
-			"default": true,
-			"description": "Add Prettier for code formatting"
-		},
-		"docker": {
-			"type": "boolean",
-			"default": false,
-			"description": "Add Docker configuration"
-		},
-		"testing": {
-			"type": "boolean",
-			"default": false,
-			"description": "Include testing setup"
-		},
-		"git": {
-			"type": "boolean",
-			"default": true,
-			"description": "Initialize git repository"
-		}
-	}
+	"variables": {}
 }
