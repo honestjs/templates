@@ -8,7 +8,7 @@ architecture.
 - **Bun**: Fast JavaScript all-in-one toolkit.
 - **Honest.js**: A modern, modular, and intuitive Node.js framework for building efficient and scalable applications.
 - **Hono**: A small, simple, and ultrafast web framework for the Edge.
-- **JSX**: For server-side rendering of views.
+- **Hono JSX**: For server-side rendering of views.
 - **TypeScript**: Statically typed JavaScript.
 - **ESLint**: For code linting.
 - **Prettier**: For code formatting.

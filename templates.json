@@ -23,9 +23,9 @@
 		},
 		"mvc": {
 			"name": "MVC",
-			"description": "Full MVC structure with React components",
+			"description": "Full MVC structure with Hono JSX views and components",
 			"category": "fullstack",
-			"tags": ["react", "mvc", "frontend"],
+			"tags": ["hono-jsx", "mvc", "frontend"],
 			"version": "1.0.0",
 			"author": "HonestJS Team",
 			"repository": "honestjs/templates",

@@ -1,3 +1,4 @@
+# Bun-based. For npm/yarn/pnpm, the CLI substitutes package-manager-specific commands.
 FROM oven/bun:1 as base
 WORKDIR /usr/src/app
 

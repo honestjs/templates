@@ -1,6 +1,6 @@
 {
 	"name": "MVC Template",
-	"description": "Full MVC structure with React components",
+	"description": "Full MVC structure with Hono JSX views and components",
 	"version": "1.0.0",
 	"author": "HonestJS Team",
 	"license": "MIT",
