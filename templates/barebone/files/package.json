@@ -13,7 +13,7 @@
 		"typescript": "^5.8.3"
 	},
 	"dependencies": {
-		"honestjs": "^0.1.4",
+		"honestjs": "^0.1.11",
 		"hono": "^4.8.5",
 		"reflect-metadata": "^0.2.2",
 		"@honestjs/class-validator-pipe": "^1.1.0",
