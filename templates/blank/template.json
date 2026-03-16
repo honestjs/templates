@@ -9,7 +9,7 @@
 		"node": ">=18.0.0",
 		"bun": ">=1.0.0"
 	},
-	"files": ["package.json", "src/**/*", "README.md"],
+	"files": ["package.json", "src/**/*", "vitest.config.ts", "README.md"],
 	"optional": [
 		"eslint.config.js",
 		"prettier.config.js",

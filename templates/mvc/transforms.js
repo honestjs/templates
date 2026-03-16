@@ -1,30 +1,14 @@
 // templates/mvc/transforms.js
+// {{pm}} and {{pmExec}} in package.json scripts are substituted by the CLI (applyProjectConfiguration).
 export const transforms = {
 	// Transform package.json
 	'package.json': (content, variables) => {
 		const pkg = JSON.parse(content)
 		pkg.name = variables.name
 
-		// Update scripts based on package manager
-		if (variables.packageManager !== 'bun') {
-			Object.keys(pkg.scripts).forEach((key) => {
-				if (pkg.scripts[key].startsWith('bun ')) {
-					pkg.scripts[key] = pkg.scripts[key].replace('bun ', `${variables.packageManager} `)
-				}
-			})
-		}
-
-		// Remove testing dependencies if not needed
+		// Remove testing script if not needed
 		if (!variables.testing) {
 			delete pkg.scripts.test
-		}
-
-		// Remove React dependencies if frontend is disabled
-		if (!variables.frontend) {
-			delete pkg.dependencies['react']
-			delete pkg.dependencies['react-dom']
-			delete pkg.devDependencies['@types/react']
-			delete pkg.devDependencies['@types/react-dom']
 		}
 
 		return JSON.stringify(pkg, null, 2)
@@ -35,43 +19,6 @@ export const transforms = {
 		return content
 			.replace(/{{projectName}}/g, variables.name)
 			.replace(/{{packageManager}}/g, variables.packageManager)
-	},
-
-	// Copy shared config files
-	'eslint.config.js': (content, variables) => {
-		return variables.eslint ? 'shared/configs/eslint.config.js' : null
-	},
-
-	'prettier.config.js': (content, variables) => {
-		return variables.prettier ? 'shared/configs/prettier.config.js' : null
-	},
-
-	'tsconfig.json': (content, variables) => {
-		return variables.typescript ? 'shared/configs/tsconfig.json' : null
-	},
-
-	Dockerfile: (content, variables) => {
-		return variables.docker ? 'shared/configs/Dockerfile' : null
-	},
-
-	'docker-compose.yml': (content, variables) => {
-		return variables.docker ? 'shared/configs/docker-compose.yml' : null
-	},
-
-	'.dockerignore': (content, variables) => {
-		return variables.docker ? 'shared/configs/.dockerignore' : null
-	},
-
-	'.gitignore': (content, variables) => {
-		return variables.git ? 'shared/configs/.gitignore' : null
-	},
-
-	'.prettierignore': (content, variables) => {
-		return variables.prettier ? 'shared/configs/.prettierignore' : null
-	},
-
-	LICENSE: () => {
-		return 'shared/configs/LICENSE'
 	},
 
 	// Remove test files if testing is disabled

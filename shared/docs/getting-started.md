@@ -23,16 +23,16 @@ HonestJS Templates provide a collection of pre-configured project structures to 
 ### 3. MVC Template
 
 -   **Category**: Fullstack
--   **Description**: Full MVC structure with React components
+-   **Description**: Full MVC structure with Hono JSX views and components
 -   **Best for**: Full-stack applications with frontend
--   **Features**: React components, MVC pattern, Static assets, Views
+-   **Features**: Hono JSX views, MVC pattern, Static assets, Components
 
 ## Quick Start
 
 1. Choose a template that fits your needs
 2. Use the HonestJS CLI to create a new project:
     ```bash
-    honestjs create my-project --template blank
+    honestjs new my-project --template blank
     ```
 3. Follow the interactive prompts to configure your project
 4. Navigate to your project directory and start developing
