@@ -1,8 +1,8 @@
+import 'reflect-metadata'
 import { ClassValidatorPipe } from '@honestjs/class-validator-pipe'
 import { EmojiFavicon, JsxRendererMiddleware } from '@honestjs/middleware'
 import { Application, type SiteData } from 'honestjs'
 import { serveStatic } from 'hono/bun'
-import 'reflect-metadata'
 import AppModule from './app.module'
 import { MainLayout } from './layouts/MainLayout'
 

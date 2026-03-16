@@ -1,6 +1,6 @@
+import 'reflect-metadata'
 import { ClassValidatorPipe } from '@honestjs/class-validator-pipe'
 import { Application } from 'honestjs'
-import 'reflect-metadata'
 import AppModule from './app.module'
 
 const { hono } = await Application.create(AppModule, {
