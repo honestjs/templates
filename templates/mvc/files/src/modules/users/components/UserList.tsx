@@ -34,24 +34,7 @@ export const UserList: FC<UserListProps> = (props: UserListProps) => {
 			<div id="user-list-container" className="user-list">
 				{props.users.length === 0 ? (
 					<div className="empty-state">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="64"
-							height="64"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							style={{ margin: '0 auto 1rem', opacity: 0.5 }}
-						>
-							<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-							<circle cx="9" cy="7" r="4" />
-							<path d="m22 2-5 10-5-4Z" />
-						</svg>
-						<h3 style={{ margin: '0 0 0.5rem', color: '#9ca3af', fontSize: '1.25rem' }}>No users yet</h3>
-						<p style={{ margin: 0, color: '#d1d5db' }}>Get started by adding your first user</p>
+						<p>No users yet. Add your first user to get started.</p>
 					</div>
 				) : (
 					props.users.map((user) => (
@@ -135,7 +118,6 @@ export const UserList: FC<UserListProps> = (props: UserListProps) => {
 								<button
 									type="button"
 									className="btn"
-									style={{ background: '#e5e7eb', color: '#6b7280' }}
 									onclick="document.getElementById('user-modal').style.display='none'"
 								>
 									Cancel

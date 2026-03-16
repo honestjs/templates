@@ -17,8 +17,8 @@ class UsersView {
 
 		const users = await this.usersService.findAll()
 		return ctx.render(<UserList users={users} />, {
-			title: '[ USERS ]',
-			description: 'List of users',
+			title: 'Users — HonestJS MVC',
+			description: 'User management — add, edit, delete users',
 			stylesheets: this.stylesheets,
 			scripts: this.scripts
 		})

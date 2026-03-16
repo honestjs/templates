@@ -29,13 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			top: 20px;
 			right: 20px;
 			padding: 1rem 1.5rem;
-			border-radius: 8px;
-			color: white;
+			border: 1px solid #000;
+			color: ${type === 'success' ? '#fff' : '#000'};
+			background: ${type === 'success' ? '#000' : '#fff'};
 			font-weight: 500;
 			z-index: 10000;
 			animation: slideInRight 0.3s ease;
-			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-			background: ${type === 'success' ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'linear-gradient(135deg, #ef4444 0%, #dc2626 100%)'};
 		`
 
 		document.body.appendChild(notification)
