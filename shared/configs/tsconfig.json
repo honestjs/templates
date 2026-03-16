@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+
     // Enable latest features
     "lib": ["ESNext", "DOM"],
     "target": "ESNext",
