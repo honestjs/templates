@@ -43,7 +43,8 @@ architecture.
 - `bun run build:bun`: Build the application for production using Bun.
 - `bun run build:node`: Build the application for production using Node.js.
 - `bun run start`: Start the production server.
-- `bun test`: Run tests.
+- `bun run test`: Run tests (Vitest).
+- `bun run test:watch`: Run tests in watch mode.
 - `bun run lint`: Lint the codebase.
 - `bun run format`: Format the codebase.
 

@@ -40,7 +40,8 @@ This is a template for a Bun-based web application using `honestjs` and `hono`.
 - `bun run build:bun`: Build for Bun production.
 - `bun run build:node`: Build for Node.js production.
 - `bun run start`: Start the production server.
-- `bun test`: Run tests.
+- `bun run test`: Run tests (Vitest).
+- `bun run test:watch`: Run tests in watch mode.
 - `bun run lint`: Lint the codebase.
 - `bun run format`: Format the codebase.
 

@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'bun:test'
+import { beforeEach, describe, expect, it } from 'vitest'
 import { CreateUserDto } from './dtos/create-user.dto'
 import UsersService from './users.service'
 
@@ -15,7 +15,7 @@ describe('UsersService', () => {
 
 	it('should find all users', async () => {
 		const users = await usersService.findAll()
-		expect(users).toBeArray()
+		expect(Array.isArray(users)).toBe(true)
 		expect(users.length).toBe(2)
 	})
 

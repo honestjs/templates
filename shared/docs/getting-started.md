@@ -50,6 +50,6 @@ After creating your project:
 1. Install dependencies: `bun install`
 2. Start development server: `bun run dev`
 3. Build for production: `bun run build`
-4. Run tests: `bun test`
+4. Run tests: `bun run test` (Vitest)
 
 For more detailed information, see the [deployment guide](./deployment.md).
