@@ -1,0 +1,17 @@
+{
+	"dev": "{{pm}} run --watch src/main.ts",
+	"start": "bun dist/main.js",
+	"build:bun": "bun build src/main.ts --outdir ./dist --target bun",
+	"build:node": "bun build src/main.ts --outdir ./dist --target node",
+	"test": "vitest run",
+	"test:watch": "vitest",
+	"lint": "eslint .",
+	"lint:fix": "eslint . --fix",
+	"format": "prettier --write .",
+	"format:check": "prettier --check .",
+	"docker:build": "docker compose build",
+	"docker:up": "docker compose up -d",
+	"docker:up:build": "docker compose up -d --build",
+	"docker:down": "docker compose down",
+	"tunnel": "{{pmExec}} localtunnel --port 3000"
+}

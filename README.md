@@ -20,6 +20,15 @@ Optional files:
 
 **Registry:** The repo root must have `templates.json` that lists each template with at least `name`, `description`, and `path` (e.g. `templates/barebone`).
 
+### Shared package base
+
+Common **scripts** and **devDependencies** are defined once in `shared/package/` and merged into every scaffolded project:
+
+- **shared/package/scripts.json** – Default scripts (dev, start, build, test, lint, format, docker, tunnel, etc.). Use placeholders `{{pm}}` and `{{pmExec}}` so the CLI can substitute the chosen package manager.
+- **shared/package/devDependencies.json** – Default dev dependencies (TypeScript, ESLint, Prettier, Vitest, etc.).
+
+After copying a template’s `files/`, the CLI merges these into the project’s `package.json`: **template-specific keys override shared defaults**. Your template’s `package.json` only needs `name`, `dependencies`, and any script or devDependency overrides. If shared base files are missing (e.g. old cache), the CLI skips composition and uses only the template’s package.json.
+
 ---
 
 ## Variable substitution
@@ -64,13 +73,35 @@ Transforms may return a **Promise** of the above (e.g. for async I/O); the CLI a
 
 The CLI tries an exact match first, then iterates glob keys. The first matching key wins.
 
+### Shared base transforms
+
+You can reuse common transform logic from **shared/transforms/base.js**, which handles:
+
+- Setting `package.json` name and optionally removing test scripts when `config.testing` is false.
+- Replacing `{{projectName}}` and `{{packageManager}}` in README.md.
+- Deleting `src/**/*.test.ts` and `src/**/*.spec.ts` when testing is disabled.
+
+Compose it with your template-specific transforms:
+
+```js
+import { baseTransforms } from '../../shared/transforms/base.js'
+
+export const transforms = {
+  ...baseTransforms,
+  // your overrides or extra keys
+}
+```
+
+Template-specific keys override base (same key wins). If you don’t need any extra transforms, export only the spread of `baseTransforms`.
+
 ### Order of operations
 
 1. Copy `files/` into the project.
-2. Apply **variable substitution** (all `{{key}}` in .json, .md, .js, .ts).
-3. Run **transforms** (each matching file is read, the transform is called, and the file is updated, removed, or replaced from `source`).
-4. Apply **project configuration** (package.json name and scripts, README placeholders, git init, install if requested).
-5. Copy **shared configs** (see below).
+2. **Compose package.json** with shared base scripts and devDependencies (template overrides shared).
+3. Apply **variable substitution** (all `{{key}}` in .json, .md, .js, .ts).
+4. Run **transforms** (each matching file is read, the transform is called, and the file is updated, removed, or replaced from `source`).
+5. Apply **project configuration** (package.json name and scripts, README placeholders, git init, install if requested).
+6. Copy **shared configs** (see below).
 
 ---
 
@@ -89,10 +120,11 @@ Adding a new shared config (e.g. a new tool) only requires adding an entry to `s
 ## Summary
 
 - Put your template files in **files/**; the whole tree is copied (excluding `node_modules` and `.git`).
+- **package.json** in your template can be minimal (name + dependencies); scripts and devDependencies are merged from **shared/package/** (template overrides shared).
 - Use **template.json** for metadata and optional **variables** for default placeholders.
 - Use **{{key}}** in .json, .md, .js, .ts; keys come from config and template variables (config wins).
 - Use **prompts.js** to ask template-specific questions; answers go into config and placeholders/transforms.
-- Use **transforms.js** to change or remove files by path or glob; return string, null, or `{ source }` (sync or async).
+- Use **transforms.js** to change or remove files; spread **shared/transforms/base.js** and add overrides, or return string, null, or `{ source }` (sync or async).
 - Shared configs in **shared/configs/** are added based on **manifest.json** and user options (eslint, prettier, docker, etc.).
 
 For examples, see the existing templates in this repo (e.g. `templates/barebone`, `templates/api-starter`).
