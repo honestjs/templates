@@ -30,16 +30,6 @@
 			"author": "HonestJS Team",
 			"repository": "honestjs/templates",
 			"path": "templates/mvc"
-		},
-		"api-starter": {
-			"name": "API Starter",
-			"description": "REST API with OpenAPI docs and type-safe client generation",
-			"category": "structured",
-			"tags": ["rest", "openapi", "swagger", "rpc", "dto"],
-			"version": "1.0.0",
-			"author": "HonestJS Team",
-			"repository": "honestjs/templates",
-			"path": "templates/api-starter"
 		}
 	},
 	"categories": {
