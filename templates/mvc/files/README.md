@@ -1,14 +1,15 @@
 # {{projectName}}
 
-This is a template for a Bun-based web application using `honestjs` and `hono` with a Model-View-Controller (MVC)
-architecture.
+This is a template for a web application using `honestjs` and `hono` with a Model-View-Controller (MVC)
+architecture. It runs on **Node.js** or **Bun**.
 
 ## ✨ Features
 
-- **Bun**: Fast JavaScript all-in-one toolkit.
-- **Honest.js**: A modern, modular, and intuitive Node.js framework for building efficient and scalable applications.
+- **Node.js or Bun**: Use the runtime you prefer; the template works on both.
+- **Honest.js**: A modern, modular, and intuitive framework for building efficient and scalable applications.
 - **Hono**: A small, simple, and ultrafast web framework for the Edge.
 - **Hono JSX**: For server-side rendering of views.
+- **@hono/node-server**: Node.js server adapter; static files via `hono/serve-static`.
 - **TypeScript**: Statically typed JavaScript.
 - **ESLint**: For code linting.
 - **Prettier**: For code formatting.
@@ -16,9 +17,7 @@ architecture.
 
 ## Prerequisites
 
-- [Bun](https://bun.sh/)
-
-This template is optimized for Bun (e.g. static assets use `hono/bun`). For Node.js, use the barebone or blank template or adapt the static serving setup.
+- [Node.js](https://nodejs.org/) (>=18) or [Bun](https://bun.sh/) (>=1.0)
 
 ## 🚀 Getting Started
 

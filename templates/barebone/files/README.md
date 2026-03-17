@@ -13,7 +13,7 @@ This is a template for a Bun-based web application using `honestjs` and `hono`.
 
 ## Prerequisites
 
-- [Bun](https://bun.sh/)
+- [Node.js](https://nodejs.org/) (>=18) or [Bun](https://bun.sh/) (>=1.0)
 
 ## 🚀 Getting Started
 

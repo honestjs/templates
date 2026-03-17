@@ -1,5 +1,5 @@
 import { createParamDecorator } from 'honestjs'
-import { getConnInfo } from 'hono/bun'
+import { getConnInfo } from '{{getConnInfoModule}}'
 
 export const ClientIP = createParamDecorator('ip', (_, ctx) => {
 	const forwardedFor = ctx.req.header('x-forwarded-for')
@@ -10,7 +10,7 @@ export const ClientIP = createParamDecorator('ip', (_, ctx) => {
 	const fromHeaders = forwardedFor?.split(',')[0].trim() || realIP || cfIP
 	if (fromHeaders) return fromHeaders
 
-	// Fallback to platform connection info (Bun, local dev)
+	// Fallback to platform connection info
 	try {
 		const connInfo = getConnInfo(ctx)
 		return connInfo?.remote?.address ?? 'unknown'
