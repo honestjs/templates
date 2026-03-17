@@ -5,8 +5,8 @@
 	"author": "HonestJS Team",
 	"license": "MIT",
 	"keywords": ["honestjs", "template", "mvc", "hono-jsx", "fullstack"],
+	"runtimes": ["bun"],
 	"engines": {
-		"node": ">=18.0.0",
 		"bun": ">=1.0.0"
 	},
 	"scripts": {},

@@ -47,11 +47,11 @@ HonestJS Templates provide a collection of pre-configured project structures to 
 
 After creating your project:
 
-1. Install dependencies: `npm install` or `bun install` (or yarn/pnpm, depending on what you chose when scaffolding)
-2. Start development server: `npm run dev` or `bun run dev`
-3. Build for production: `npm run build` or `bun run build`
-4. Run tests: `npm run test` or `bun run test` (Vitest)
+1. Install dependencies: `bun install`
+2. Start development server: `bun run dev`
+3. Build for production: `bun run build`
+4. Run tests: `bun run test` (Vitest)
 
-Templates work with Node.js (npm, yarn, pnpm) or Bun.
+Templates require Bun.
 
 For more detailed information, see the [deployment guide](./deployment.md).

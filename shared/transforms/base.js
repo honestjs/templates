@@ -16,7 +16,7 @@ export const baseTransforms = {
 	'README.md': (content, variables) => {
 		return content
 			.replace(/\{\{projectName\}\}/g, variables.name ?? '')
-			.replace(/\{\{packageManager\}\}/g, variables.packageManager ?? 'bun')
+			.replace(/\{\{packageManager\}\}/g, 'bun')
 	},
 
 	'src/**/*.test.ts': (content, variables) => (variables.testing ? content : null),

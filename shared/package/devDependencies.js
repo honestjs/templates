@@ -1,14 +1,12 @@
 /**
- * Context-aware shared devDependencies. Receives project config and returns deps object.
- * Omit tsx/tsup for Bun; include them for npm/yarn/pnpm.
- * @param {{ packageManager?: string }} context
+ * Shared devDependencies for Bun and Node package managers.
+ * @param {{ packageManager?: 'bun' | 'npm' | 'yarn' | 'pnpm' }} context
  * @returns {Record<string, string>}
  */
 export default function getDevDependencies(context) {
-	const pm = context?.packageManager ?? 'bun'
-	const deps = {
+	const isBun = (context?.packageManager ?? 'bun') === 'bun'
+	const devDependencies = {
 		'@eslint/js': '^10.0.1',
-		...(pm === 'bun' && { '@types/bun': '^1.3.10' }),
 		vitest: '^4.1.0',
 		eslint: '^10.0.3',
 		'eslint-config-prettier': '^10.1.8',
@@ -17,9 +15,13 @@ export default function getDevDependencies(context) {
 		'typescript-eslint': '^8.57.0',
 		typescript: '^5.9.3'
 	}
-	if (pm !== 'bun') {
-		deps.tsup = '^8.3.5'
-		deps.tsx = '^4.19.2'
+
+	if (isBun) {
+		devDependencies['@types/bun'] = '^1.3.10'
+	} else {
+		devDependencies.tsx = '^4.20.6'
+		devDependencies.tsup = '^8.5.0'
 	}
-	return deps
+
+	return devDependencies
 }

@@ -1,15 +1,14 @@
 # {{projectName}}
 
 This is a template for a web application using `honestjs` and `hono` with a Model-View-Controller (MVC)
-architecture. It runs on **Node.js** or **Bun**.
+architecture. It runs on **Bun**.
 
 ## ✨ Features
 
-- **Node.js or Bun**: Use the runtime you prefer; the template works on both.
+- **Bun**: Fast JavaScript runtime and toolkit.
 - **Honest.js**: A modern, modular, and intuitive framework for building efficient and scalable applications.
 - **Hono**: A small, simple, and ultrafast web framework for the Edge.
 - **Hono JSX**: For server-side rendering of views.
-- **@hono/node-server**: Node.js server adapter; static files via `hono/serve-static`.
 - **TypeScript**: Statically typed JavaScript.
 - **ESLint**: For code linting.
 - **Prettier**: For code formatting.
@@ -17,7 +16,7 @@ architecture. It runs on **Node.js** or **Bun**.
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) (>=18) or [Bun](https://bun.sh/) (>=1.0)
+- [Bun](https://bun.sh/) (>=1.0)
 
 ## 🚀 Getting Started
 
@@ -26,7 +25,7 @@ architecture. It runs on **Node.js** or **Bun**.
 2.  **Install dependencies:**
 
     ```bash
-    {{packageManager}} install
+    bun install
     ```
 
 3.  **Environment Variables:**
@@ -40,16 +39,16 @@ architecture. It runs on **Node.js** or **Bun**.
 
 ## NPM Scripts
 
-- `{{packageManager}} run dev`: Start the development server with hot-reloading.
-- `{{packageManager}} run build`: Build the application for production.
-- `{{packageManager}} run start`: Start the production server.
-- `{{packageManager}} run test`: Run tests (Vitest).
-- `{{packageManager}} run test:watch`: Run tests in watch mode.
-- `{{packageManager}} run lint`: Lint the codebase.
-- `{{packageManager}} run format`: Format the codebase.
+- `bun run dev`: Start the development server with hot-reloading.
+- `bun run build`: Build the application for production.
+- `bun run start`: Start the production server.
+- `bun run test`: Run tests (Vitest).
+- `bun run test:watch`: Run tests in watch mode.
+- `bun run lint`: Lint the codebase.
+- `bun run format`: Format the codebase.
 
 ## 🐳 Docker
 
-- `{{packageManager}} run docker:build`: Build the Docker image.
-- `{{packageManager}} run docker:up`: Start the application in a Docker container.
-- `{{packageManager}} run docker:down`: Stop the Docker container.
+- `bun run docker:build`: Build the Docker image.
+- `bun run docker:up`: Start the application in a Docker container.
+- `bun run docker:down`: Stop the Docker container.

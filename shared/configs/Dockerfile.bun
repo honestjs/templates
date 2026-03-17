@@ -1,4 +1,4 @@
-# Bun-based image. Chosen when package manager is bun.
+# Bun-based image. Templates use Bun only.
 # Works without bun.lock (run `bun install` in project first for reproducible lockfile).
 FROM oven/bun:1 AS base
 WORKDIR /usr/src/app

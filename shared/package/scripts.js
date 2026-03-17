@@ -1,28 +1,22 @@
 /**
- * Context-aware shared scripts. Receives project config and returns scripts object.
- * Use {{pm}} and {{pmExec}} in values; CLI substitutes them at scaffold time.
- * @param {{ packageManager?: string; eslint?: boolean; prettier?: boolean; docker?: boolean }} context
+ * Shared scripts for Bun and Node package managers.
+ * Use {{pm}} and {{pmExec}} placeholders for package-manager-specific commands.
+ * @param {{ packageManager?: 'bun' | 'npm' | 'yarn' | 'pnpm'; eslint?: boolean; prettier?: boolean; docker?: boolean }} context
  * @returns {Record<string, string>}
  */
 export default function getScripts(context) {
-	const pm = context?.packageManager ?? 'bun'
-	const scripts = {}
-
-	// PM-specific (dev, start, build)
-	if (pm === 'bun') {
-		scripts.dev = 'bun run --watch src/main.ts'
-		scripts.start = 'bun dist/main.js'
-		scripts.build = 'bun build src/main.ts --outdir ./dist --target bun'
-	} else {
-		scripts.dev = '{{pm}} run dev:watch'
-		scripts.start = 'node dist/main.js'
-		scripts.build = 'tsup src/main.ts --format esm --outDir dist'
+	const isBun = (context?.packageManager ?? 'bun') === 'bun'
+	const scripts = {
+		dev: isBun ? 'bun run --watch src/main.ts' : '{{pm}} run dev:watch',
+		'dev:watch': isBun ? '{{pm}} run --watch src/main.ts' : 'tsx watch src/main.ts',
+		start: isBun ? 'bun dist/main.js' : 'node dist/main.js',
+		build: isBun
+			? 'bun build src/main.ts --outdir ./dist --target bun'
+			: 'tsup src/main.ts --format esm --dts --target node18 --out-dir dist --clean',
+		test: 'vitest run',
+		'test:watch': 'vitest',
+		tunnel: '{{pmExec}} localtunnel --port 3000'
 	}
-
-	scripts['dev:watch'] = 'tsx watch src/main.ts'
-	scripts.test = 'vitest run'
-	scripts['test:watch'] = 'vitest'
-	scripts.tunnel = '{{pmExec}} localtunnel --port 3000'
 
 	if (context?.eslint) {
 		scripts.lint = 'eslint .'

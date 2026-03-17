@@ -9,8 +9,14 @@ Each template lives in a directory under `templates/` (e.g. `templates/barebone`
 
 | Item              | Required | Description                                                                                                                                     |
 | ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| **template.json** | Yes      | Metadata: `name`, `description`, `version`, `author`, optional `variables`, etc.                                                                |
+| **template.json** | Yes      | Metadata: `name`, `description`, `version`, `author`, optional `variables`, optional `runtimes`, etc.                                          |
 | **files/**        | Yes      | Directory whose contents are copied into the new project. Everything under `files/` is copied except paths containing `node_modules` or `.git`. |
+
+Optional **template.json** keys:
+
+| Key           | Description                                                                                                                                                       |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **runtimes**  | Array of supported runtimes, e.g. `["bun"]` or `["bun", "node"]`. When absent, all runtimes are assumed. Used by the CLI to restrict package manager choice and to show compatibility in `honestjs list`. The template directory’s `template.json` is the source of truth; `templates.json` can override when needed. |
 
 Optional files:
 
