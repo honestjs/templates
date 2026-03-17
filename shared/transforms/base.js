@@ -1,15 +1,12 @@
 /**
- * Shared base transforms: package.json name + testing script, README placeholders, test file pruning.
+ * Shared base transforms: package.json name, README placeholders, test file pruning.
+ * Testing scripts are added conditionally in shared/package/scripts.js.
  * Template transforms.js can spread this and add template-specific overrides.
  */
 export const baseTransforms = {
 	'package.json': (content, variables) => {
 		const pkg = JSON.parse(content)
 		pkg.name = variables.name
-		if (!variables.testing) {
-			delete pkg.scripts?.test
-			delete pkg.scripts?.['test:watch']
-		}
 		return JSON.stringify(pkg, null, 2)
 	},
 

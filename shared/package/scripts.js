@@ -1,6 +1,6 @@
 /**
  * Shared scripts for built-in templates (Bun only).
- * @param {{ eslint?: boolean; prettier?: boolean; docker?: boolean }} context
+ * @param {{ eslint?: boolean; prettier?: boolean; docker?: boolean; testing?: boolean }} context
  * @returns {Record<string, string>}
  */
 export default function getScripts(context) {
@@ -9,9 +9,12 @@ export default function getScripts(context) {
 		'dev:watch': 'bun run --watch src/main.ts',
 		start: 'bun dist/main.js',
 		build: 'bun build src/main.ts --outdir ./dist --target bun',
-		test: 'vitest run',
-		'test:watch': 'vitest',
 		tunnel: 'bunx localtunnel --port 3000'
+	}
+
+	if (context?.testing) {
+		scripts.test = 'vitest run'
+		scripts['test:watch'] = 'vitest'
 	}
 
 	if (context?.eslint) {
