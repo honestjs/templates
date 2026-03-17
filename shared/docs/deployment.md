@@ -6,7 +6,7 @@ This guide covers deploying HonestJS applications created from our templates.
 
 ## Prerequisites
 
--   Node.js 18+ or Bun 1.0+
+-   Bun 1.0+
 -   Docker (optional, for containerized deployment)
 -   A deployment platform (Vercel, Railway, Heroku, etc.)
 
