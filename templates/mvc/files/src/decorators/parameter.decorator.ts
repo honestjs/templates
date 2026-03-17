@@ -1,5 +1,5 @@
 import { createParamDecorator } from 'honestjs'
-import { getConnInfo } from '{{getConnInfoModule}}'
+import { getConnInfo } from 'hono/bun'
 
 export const ClientIP = createParamDecorator('ip', (_, ctx) => {
 	const forwardedFor = ctx.req.header('x-forwarded-for')
