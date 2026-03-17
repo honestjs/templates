@@ -138,13 +138,13 @@ Template-specific keys override base (same key wins). If you don’t need any ex
 
 ## Shared configs
 
-Optional tooling files (ESLint, Prettier, TypeScript, Docker, .gitignore, LICENSE, etc.) are not stored inside each
+Optional tooling files (ESLint, Prettier, TypeScript, Docker, .gitignore, etc.) are not stored inside each
 template’s `files/`. They live in **shared/configs/** and are copied into the project only when the user has enabled the
 corresponding option.
 
 - **Manifest:** `shared/configs/manifest.json` lists entries `{ "file": "<filename>", "condition": "<configKey>" }`. For
   example `"condition": "eslint"` means “copy this file only when `config.eslint` is truthy.” Use `"condition": true`
-  for files that are always copied (e.g. LICENSE).
+  for files that are always copied.
 - **Config keys** match the CLI’s project config: `eslint`, `prettier`, `typescript`, `docker`, `git`, etc. These are
   set by the user during `honestjs new` (or defaults with `--yes`).
 - If the manifest is missing (e.g. old cache), the CLI falls back to a built-in list with the same semantics.
