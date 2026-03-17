@@ -147,8 +147,6 @@ corresponding option.
   for files that are always copied.
 - **Config keys** match the CLI’s project config: `eslint`, `prettier`, `typescript`, `docker`, `git`, etc. These are
   set by the user during `honestjs new` (or defaults with `--yes`).
-- If the manifest is missing (e.g. old cache), the CLI falls back to a built-in list with the same semantics.
-
 Adding a new shared config (e.g. a new tool) only requires adding an entry to `shared/configs/manifest.json` and placing
 the file in `shared/configs/`; no CLI code change is needed.
 
