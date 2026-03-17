@@ -24,17 +24,21 @@ Optional files:
 
 ### Shared package base
 
-Common **scripts** and **devDependencies** are defined once in `shared/package/` and merged into every scaffolded
-project:
+Common **scripts** and **devDependencies** are defined in `shared/package/` as **JavaScript modules** and merged into
+every scaffolded project when the CLI applies project config (with context).
 
-- **shared/package/scripts.json** – Default scripts (dev, start, build, test, lint, format, docker, tunnel, etc.). Use
-  placeholders `{{pm}}` and `{{pmExec}}` so the CLI can substitute the chosen package manager.
-- **shared/package/devDependencies.json** – Default dev dependencies (TypeScript, ESLint, Prettier, Vitest, etc.).
+- **shared/package/scripts.js** (or `.mjs`) – Export a **default function** `(context) => Record<string, string>`.
+  The CLI calls it with the project config (packageManager, eslint, prettier, docker, etc.) and merges the returned
+  scripts. Use `{{pm}}` and `{{pmExec}}` in values; the CLI substitutes them.
+- **shared/package/devDependencies.js** (or `.mjs`) – Export a **default function** `(context) => Record<string, string>`.
+  The CLI calls it with the project config and merges the returned devDependencies (e.g. omit tsx/tsup for Bun inside
+  the function).
+- **shared/package/dependencies.js** (or `.mjs`) – Export a **default function** `(context) => Record<string, string>`.
+  The CLI calls it with the project config and merges the returned runtime dependencies (e.g. honestjs, hono).
 
-After copying a template’s `files/`, the CLI merges these into the project’s `package.json`: **template-specific keys
-override shared defaults**. Your template’s `package.json` only needs `name`, `dependencies`, and any script or
-devDependency overrides. If shared base files are missing (e.g. old cache), the CLI skips composition and uses only the
-template’s package.json.
+After copying a template’s `files/`, the CLI merges shared scripts and devDependencies into the project’s `package.json`
+during project configuration: **template-specific keys override shared**. Your template’s `package.json` can be minimal
+(name, dependencies, empty or partial scripts/devDependencies).
 
 ---
 
@@ -147,8 +151,8 @@ the file in `shared/configs/`; no CLI code change is needed.
 ## Summary
 
 - Put your template files in **files/**; the whole tree is copied (excluding `node_modules` and `.git`).
-- **package.json** in your template can be minimal (name + dependencies); scripts and devDependencies are merged from
-  **shared/package/** (template overrides shared).
+- **package.json** in your template can be minimal (name, module, type, and template-specific dependencies); scripts,
+  devDependencies, and shared dependencies are merged from **shared/package/*.js** (template overrides shared).
 - Use **template.json** for metadata and optional **variables** for default placeholders.
 - Use **{{key}}** in .json, .md, .js, .ts; keys come from config and template variables (config wins).
 - Use **prompts.js** to ask template-specific questions; answers go into config and placeholders/transforms.

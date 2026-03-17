@@ -3,38 +3,7 @@
 	"module": "src/main.ts",
 	"type": "module",
 	"private": true,
-	"devDependencies": {
-		"@eslint/js": "^10.0.1",
-		"@types/bun": "^1.3.10",
-		"vitest": "^4.1.0",
-		"eslint": "^10.0.3",
-		"eslint-config-prettier": "^10.1.8",
-		"globals": "^17.4.0",
-		"prettier": "^3.8.1",
-		"typescript-eslint": "^8.57.0",
-		"typescript": "^5.9.3"
-	},
-	"dependencies": {
-		"honestjs": "^0.1.14",
-		"hono": "^4.12.8",
-		"reflect-metadata": "^0.2.2",
-		"http-essentials": "^1.4.0"
-	},
-	"scripts": {
-		"dev": "{{pm}} run --watch src/main.ts",
-		"start": "bun dist/main.js",
-		"build:bun": "bun build src/main.ts --outdir ./dist --target bun",
-		"build:node": "bun build src/main.ts --outdir ./dist --target node",
-		"test": "vitest run",
-		"test:watch": "vitest",
-		"lint": "eslint .",
-		"lint:fix": "eslint . --fix",
-		"format": "prettier --write .",
-		"format:check": "prettier --check .",
-		"docker:build": "docker compose build",
-		"docker:up": "docker compose up -d",
-		"docker:up:build": "docker compose up -d --build",
-		"docker:down": "docker compose down",
-		"tunnel": "{{pmExec}} localtunnel --port 3000"
-	}
+	"devDependencies": {},
+	"dependencies": {},
+	"scripts": {}
 }
