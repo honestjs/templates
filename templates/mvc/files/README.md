@@ -1,4 +1,4 @@
-# MVC Template
+# {{projectName}}
 
 This is a template for a Bun-based web application using `honestjs` and `hono` with a Model-View-Controller (MVC)
 architecture.
@@ -18,6 +18,8 @@ architecture.
 
 - [Bun](https://bun.sh/)
 
+This template is optimized for Bun (e.g. static assets use `hono/bun`). For Node.js, use the barebone or blank template or adapt the static serving setup.
+
 ## 🚀 Getting Started
 
 1.  **Clone the repository or use it as a template.**
@@ -25,7 +27,7 @@ architecture.
 2.  **Install dependencies:**
 
     ```bash
-    bun install
+    {{packageManager}} install
     ```
 
 3.  **Environment Variables:**
@@ -39,17 +41,17 @@ architecture.
 
 ## NPM Scripts
 
-- `bun run dev`: Start the development server with hot-reloading.
-- `bun run build:bun`: Build the application for production using Bun.
-- `bun run build:node`: Build the application for production using Node.js.
-- `bun run start`: Start the production server.
-- `bun run test`: Run tests (Vitest).
-- `bun run test:watch`: Run tests in watch mode.
-- `bun run lint`: Lint the codebase.
-- `bun run format`: Format the codebase.
+- `{{packageManager}} run dev`: Start the development server with hot-reloading.
+- `{{packageManager}} run build:bun`: Build the application for production using Bun.
+- `{{packageManager}} run build:node`: Build the application for production using Node.js.
+- `{{packageManager}} run start`: Start the production server.
+- `{{packageManager}} run test`: Run tests (Vitest).
+- `{{packageManager}} run test:watch`: Run tests in watch mode.
+- `{{packageManager}} run lint`: Lint the codebase.
+- `{{packageManager}} run format`: Format the codebase.
 
 ## 🐳 Docker
 
-- `bun run docker:build`: Build the Docker image.
-- `bun run docker:up`: Start the application in a Docker container.
-- `bun run docker:down`: Stop the Docker container.
+- `{{packageManager}} run docker:build`: Build the Docker image.
+- `{{packageManager}} run docker:up`: Start the application in a Docker container.
+- `{{packageManager}} run docker:down`: Stop the Docker container.

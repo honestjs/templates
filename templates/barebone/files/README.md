@@ -1,4 +1,4 @@
-# Barebone Template
+# {{projectName}}
 
 This is a template for a Bun-based web application using `honestjs` and `hono`.
 
@@ -22,7 +22,7 @@ This is a template for a Bun-based web application using `honestjs` and `hono`.
 2.  **Install dependencies:**
 
     ```bash
-    bun install
+    {{packageManager}} install
     ```
 
 3.  **Environment Variables:**
@@ -36,17 +36,17 @@ This is a template for a Bun-based web application using `honestjs` and `hono`.
 
 ## NPM Scripts
 
-- `bun run dev`: Start the development server with hot-reloading.
-- `bun run build:bun`: Build for Bun production.
-- `bun run build:node`: Build for Node.js production.
-- `bun run start`: Start the production server.
-- `bun run test`: Run tests (Vitest).
-- `bun run test:watch`: Run tests in watch mode.
-- `bun run lint`: Lint the codebase.
-- `bun run format`: Format the codebase.
+- `{{packageManager}} run dev`: Start the development server with hot-reloading.
+- `{{packageManager}} run build:bun`: Build for Bun production.
+- `{{packageManager}} run build:node`: Build for Node.js production.
+- `{{packageManager}} run start`: Start the production server.
+- `{{packageManager}} run test`: Run tests (Vitest).
+- `{{packageManager}} run test:watch`: Run tests in watch mode.
+- `{{packageManager}} run lint`: Lint the codebase.
+- `{{packageManager}} run format`: Format the codebase.
 
 ## 🐳 Docker
 
-- `bun run docker:build`: Build the Docker image.
-- `bun run docker:up`: Start the application in a Docker container.
-- `bun run docker:down`: Stop the Docker container.
+- `{{packageManager}} run docker:build`: Build the Docker image.
+- `{{packageManager}} run docker:up`: Start the application in a Docker container.
+- `{{packageManager}} run docker:down`: Stop the Docker container.

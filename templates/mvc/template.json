@@ -4,7 +4,7 @@
 	"version": "1.0.0",
 	"author": "HonestJS Team",
 	"license": "MIT",
-	"keywords": ["honestjs", "template", "mvc", "react", "fullstack"],
+	"keywords": ["honestjs", "template", "mvc", "hono-jsx", "fullstack"],
 	"engines": {
 		"node": ">=18.0.0",
 		"bun": ">=1.0.0"

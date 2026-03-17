@@ -7,12 +7,4 @@ export const prompts = [
 		active: 'yes',
 		inactive: 'no',
 	},
-	{
-		type: 'toggle',
-		name: 'frontend',
-		message: 'Include frontend views/components/static assets?',
-		initial: true,
-		active: 'yes',
-		inactive: 'no',
-	},
 ]
