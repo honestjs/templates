@@ -10,14 +10,13 @@ export default function getScripts(context) {
 
 	// PM-specific (dev, start, build)
 	if (pm === 'bun') {
-		scripts.dev = '{{pm}} run --watch src/main.ts'
+		scripts.dev = 'bun run --watch src/main.ts'
 		scripts.start = 'bun dist/main.js'
-		scripts['build:bun'] = 'bun build src/main.ts --outdir ./dist --target bun'
-		scripts['build:node'] = 'bun build src/main.ts --outdir ./dist --target node'
+		scripts.build = 'bun build src/main.ts --outdir ./dist --target bun'
 	} else {
 		scripts.dev = '{{pm}} run dev:watch'
 		scripts.start = 'node dist/main.js'
-		scripts['build:node'] = 'tsup src/main.ts --format esm --outDir dist'
+		scripts.build = 'tsup src/main.ts --format esm --outDir dist'
 	}
 
 	scripts['dev:watch'] = 'tsx watch src/main.ts'

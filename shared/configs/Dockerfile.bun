@@ -1,7 +1,6 @@
-# Bun-based. For npm/yarn/pnpm, the CLI substitutes package-manager-specific commands.
+# Bun-based image. Chosen when package manager is bun.
 # Works without bun.lock (run `bun install` in project first for reproducible lockfile).
-# Does not require tsconfig.json (Bun builds TypeScript without it).
-FROM oven/bun:1 as base
+FROM oven/bun:1 AS base
 WORKDIR /usr/src/app
 
 FROM base AS install
@@ -17,11 +16,13 @@ FROM base AS prerelease
 COPY --from=install /temp/dev/node_modules node_modules
 COPY package.json ./
 COPY src ./src
-RUN bun run build:bun
+RUN bun run build
 
 FROM base AS release
 COPY --from=install /temp/prod/node_modules node_modules
 COPY --from=prerelease /usr/src/app/dist ./dist
 COPY --from=prerelease /usr/src/app/package.json ./
 
-ENTRYPOINT [ "bun", "start" ] 
+ENV NODE_ENV=production
+EXPOSE 3000
+ENTRYPOINT [ "bun", "run", "start" ]

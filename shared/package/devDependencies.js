@@ -8,7 +8,7 @@ export default function getDevDependencies(context) {
 	const pm = context?.packageManager ?? 'bun'
 	const deps = {
 		'@eslint/js': '^10.0.1',
-		'@types/bun': '^1.3.10',
+		...(pm === 'bun' && { '@types/bun': '^1.3.10' }),
 		vitest: '^4.1.0',
 		eslint: '^10.0.3',
 		'eslint-config-prettier': '^10.1.8',

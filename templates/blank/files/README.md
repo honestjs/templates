@@ -37,8 +37,7 @@ This is a template for a Bun-based web application using `honestjs` and `hono`.
 ## NPM Scripts
 
 - `{{packageManager}} run dev`: Start the development server with hot-reloading.
-- `{{packageManager}} run build:bun`: Build for Bun production.
-- `{{packageManager}} run build:node`: Build for Node.js production.
+- `{{packageManager}} run build`: Build for production.
 - `{{packageManager}} run start`: Start the production server.
 - `{{packageManager}} run test`: Run tests (Vitest).
 - `{{packageManager}} run test:watch`: Run tests in watch mode.

@@ -42,8 +42,7 @@ This template is optimized for Bun (e.g. static assets use `hono/bun`). For Node
 ## NPM Scripts
 
 - `{{packageManager}} run dev`: Start the development server with hot-reloading.
-- `{{packageManager}} run build:bun`: Build the application for production using Bun.
-- `{{packageManager}} run build:node`: Build the application for production using Node.js.
+- `{{packageManager}} run build`: Build the application for production.
 - `{{packageManager}} run start`: Start the production server.
 - `{{packageManager}} run test`: Run tests (Vitest).
 - `{{packageManager}} run test:watch`: Run tests in watch mode.
