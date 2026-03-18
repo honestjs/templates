@@ -1,6 +1,5 @@
 /**
  * Shared base transforms: package.json name, README placeholders, test file pruning.
- * Testing scripts are added conditionally in shared/package/scripts.js.
  * Template transforms.js can spread this and add template-specific overrides.
  */
 export const baseTransforms = {

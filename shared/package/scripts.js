@@ -16,7 +16,6 @@ export default function getScripts(context) {
 		scripts.test = 'vitest run'
 		scripts['test:watch'] = 'vitest'
 	}
-
 	if (context?.eslint) {
 		scripts.lint = 'eslint .'
 		scripts['lint:fix'] = 'eslint . --fix'
