@@ -15,8 +15,8 @@ declare module 'hono' {
 const { hono } = await Application.create(AppModule, {
 	hono: { strict: true },
 	routing: { prefix: 'api', version: 1 },
-		components: {
-			middleware: [new EmojiFavicon('◼'), new JsxRendererMiddleware(MainLayout)],
+	components: {
+		middleware: [new EmojiFavicon('◼'), new JsxRendererMiddleware(MainLayout)],
 		pipes: [new ClassValidatorPipe()]
 	}
 })
