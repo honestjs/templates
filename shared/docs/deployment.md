@@ -32,7 +32,8 @@ bun run start
 
 ## Docker Deployment
 
-All templates include Docker configuration for containerized deployment.
+Templates can optionally include Docker configuration for containerized deployment (enable Docker during project
+creation or pass `--docker` to the CLI).
 
 ### Build Docker Image
 
@@ -110,9 +111,15 @@ Configure the following environment variables in your deployment platform:
 Implement health check endpoints:
 
 ```typescript
-app.get('/health', (req, res) => {
-	res.json({ status: 'ok', timestamp: new Date().toISOString() })
-})
+import { Controller, Get, VERSION_NEUTRAL } from 'honestjs'
+
+@Controller('health', { version: VERSION_NEUTRAL })
+class HealthController {
+	@Get()
+	check() {
+		return { status: 'ok', timestamp: new Date().toISOString() }
+	}
+}
 ```
 
 ## Troubleshooting

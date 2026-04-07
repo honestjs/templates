@@ -39,9 +39,9 @@ HonestJS Templates provide a collection of pre-configured project structures to 
 
 ## Template Selection Guide
 
--   **New to HonestJS?** Start with the Blank template
--   **Building an API?** Use the Barebone template
--   **Full-stack application?** Choose the MVC template
+-   **New to HonestJS?** Start with the **Blank** template to learn the basics
+-   **Building an API?** Use the **Barebone** template (recommended for most projects)
+-   **Full-stack application?** Choose the **MVC** template
 
 ## Next Steps
 
